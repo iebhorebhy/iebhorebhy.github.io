@@ -18,6 +18,27 @@
         .bg-dorado { background-color: #c9a84c; }
         .text-dorado { color: #c9a84c; }
         .border-dorado { border-color: #c9a84c; }
+
+        /* ===== RESPONSIVO: Escala todo proporcionalmente ===== */
+        html {
+            font-size: 16px;
+        }
+        @media (max-width: 640px) {
+            html { font-size: 14px; }
+        }
+        @media (min-width: 1024px) {
+            html { font-size: 18px; }
+        }
+
+        /* ===== IMÁGENES Y ELEMENTOS FLUIDOS ===== */
+        img, svg, video, iframe {
+            max-width: 100%;
+            height: auto;
+        }
+        .container-fluid {
+            width: 100%;
+            max-width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -34,7 +55,7 @@
 
         <div class="relative w-full max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-20 text-center">
             
-            <!-- LOGO CENTRAL (logo.jpg) -->
+            <!-- LOGO CENTRAL -->
             <div class="flex justify-center mb-4">
                 <img src="logo.jpg" 
                      alt="Logo Iglesia Evangélica Bautista Horeb" 
@@ -54,15 +75,15 @@
                 “Cumpliendo la Gran Comisión con amor y fe 🌍💖.”
             </p>
 
-            <!-- Versículo -->
-<div class="mt-6 rounded-xl px-4 sm:px-6 py-4 max-w-xl mx-auto" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(4px); border: 1px solid rgba(74, 141, 183, 0.3);">
-    <p class="text-xs sm:text-sm md:text-base text-center" style="color: #d4e4f7;">
-        <i class="fas fa-quote-left text-xs mr-1" style="color: #c9a84c;"></i>
-        <span class="italic">Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos.</span>
-        <i class="fas fa-quote-right text-xs ml-1" style="color: #c9a84c;"></i>
-        <span class="block mt-1 text-xs sm:text-sm font-medium" style="color: #c9a84c;">— Mateo 18:20</span>
-    </p>
-</div>
+            <!-- ===== VERSÍCULO CON COMILLAS DOBLES ===== -->
+            <div class="mt-6 rounded-xl px-4 sm:px-6 py-4 max-w-xl mx-auto" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(4px); border: 1px solid rgba(74, 141, 183, 0.3);">
+                <p class="text-xs sm:text-sm md:text-base text-center" style="color: #d4e4f7;">
+                    <i class="fas fa-quote-left text-xs mr-1" style="color: #c9a84c;"></i>
+                    <span class="italic">Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos.</span>
+                    <i class="fas fa-quote-right text-xs ml-1" style="color: #c9a84c;"></i>
+                    <span class="block mt-1 text-xs sm:text-sm font-medium" style="color: #c9a84c;">— Mateo 18:20</span>
+                </p>
+            </div>
         </div>
     </section>
 
@@ -166,13 +187,15 @@
 
                 </div>
 
+                <!-- ELIMINADO: "Actualizado hace 11 meses" -->
+
             </div>
 
         </div>
     </section>
 
     <!-- ============================================================ -->
-    <!-- ========== SECCIÓN DE REDES SOCIALES (ICONOS PEQUEÑOS) ========== -->
+    <!-- ========== SECCIÓN DE REDES SOCIALES ========== -->
     <!-- ============================================================ -->
     <section class="w-full" style="background: #e8f0fe;">
         <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12 md:pb-16">
@@ -185,7 +208,7 @@
                     Conéctate con nuestra comunidad
                 </p>
 
-                <!-- Iconos más pequeños y con buen espaciado -->
+                <!-- Iconos de redes sociales -->
                 <div class="flex justify-center items-center gap-5 sm:gap-6 mt-4">
                     
                     <!-- FACEBOOK -->
@@ -224,7 +247,7 @@
                         <span class="text-[9px] sm:text-xs font-medium mt-1.5" style="color: #1a2a4a;">WhatsApp</span>
                     </a>
 
-                    <!-- YOUTUBE (opcional, lo dejo como ejemplo) -->
+                    <!-- YOUTUBE -->
                     <a href="#" 
                        target="_blank" 
                        rel="noopener noreferrer"
