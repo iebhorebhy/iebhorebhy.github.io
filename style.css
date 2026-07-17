@@ -1,0 +1,214 @@
+/* ===== FUENTE ===== */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ===== PALETA DE COLORES AZUL ===== */
+.bg-azul-marino {
+    background-color: #1a2a4a;
+}
+.bg-azul-profundo {
+    background-color: #0d1b3e;
+}
+.bg-azul-cielo {
+    background-color: #4a8db7;
+}
+.bg-azul-claro {
+    background-color: #e8f0fe;
+}
+.text-azul-marino {
+    color: #1a2a4a;
+}
+.text-azul-cielo {
+    color: #4a8db7;
+}
+.border-azul-cielo {
+    border-color: #4a8db7;
+}
+.bg-dorado {
+    background-color: #c9a84c;
+}
+.text-dorado {
+    color: #c9a84c;
+}
+.border-dorado {
+    border-color: #c9a84c;
+}
+.text-gris-claro {
+    color: #d4e4f7;
+}
+.text-gris-oscuro {
+    color: #4a5568;
+}
+.bg-gradient-azul {
+    background: linear-gradient(135deg, #1a2a4a, #0d1b3e);
+}
+
+/* ===== ELIMINAR SCROLL HORIZONTAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    scroll-behavior: smooth;
+}
+img,
+svg,
+video,
+iframe {
+    max-width: 100% !important;
+    height: auto !important;
+}
+.no-overflow {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+}
+
+/* ===== EFECTOS Y MEJORAS VISUALES ===== */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+}
+
+/* ===== ICONOS DE REDES SOCIALES EN FOOTER ===== */
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #c9a84c;
+    border: 2px solid #c9a84c;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    text-decoration: none;
+    background: transparent;
+}
+.social-icon:hover {
+    background-color: #c9a84c;
+    color: #0d1b3e;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(201, 168, 76, 0.4);
+}
+@media (max-width: 640px) {
+    .social-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+}
+
+/* ===== ICONOS DE TARJETAS ===== */
+.card-icon {
+    font-size: 3.5rem;
+    color: #4a8db7;
+    transition: transform 0.3s ease;
+}
+.group:hover .card-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+@media (max-width: 640px) {
+    .card-icon {
+        font-size: 2.8rem;
+    }
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+.delay-1 {
+    animation-delay: 0.1s;
+}
+.delay-2 {
+    animation-delay: 0.2s;
+}
+.delay-3 {
+    animation-delay: 0.3s;
+}
+.delay-4 {
+    animation-delay: 0.4s;
+}
+
+/* ===== BOTÓN WHATSAPP FLOTANTE ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+    color: white;
+}
+@media (max-width: 640px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* ===== BADGE DE EVENTOS ===== */
+.event-badge {
+    background: linear-gradient(135deg, #c9a84c, #b8942e);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===== SCROLLBAR PERSONALIZADA ===== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #e8f0fe;
+}
+::-webkit-scrollbar-thumb {
+    background: #4a8db7;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #1a2a4a;
+}
