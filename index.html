@@ -82,6 +82,21 @@
                 font-size: 12px;
             }
         }
+
+        /* ===== ICONOS DE TARJETAS ===== */
+        .card-icon {
+            font-size: 3.5rem;
+            color: #4a8db7;
+            transition: transform 0.3s ease;
+        }
+        .group:hover .card-icon {
+            transform: scale(1.1);
+        }
+        @media (max-width: 640px) {
+            .card-icon {
+                font-size: 2.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -100,7 +115,7 @@
 
             <!-- LOGO CENTRAL -->
             <div class="flex justify-center mb-4">
-                <img src="https://via.placeholder.com/160x160/1a2a4a/c9a84c?text=HOREB"
+                <img src="logo.jpg"
                      alt="Logo de la Iglesia Evangélica Bautista Horeb"
                      class="w-32 h-32 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-4 border-dorado shadow-xl object-cover p-1 bg-azul-claro" />
             </div>
@@ -144,7 +159,9 @@
                    target="_blank"
                    rel="noopener noreferrer"
                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 sm:p-8 text-center border-2 border-azul-claro hover:border-azul-cielo hover-lift w-full no-overflow">
-                    <div class="text-4xl sm:text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">📸</div>
+                    <div class="mb-4">
+                        <i class="fas fa-images card-icon"></i>
+                    </div>
                     <h2 class="text-xl sm:text-xl font-bold text-azul-marino break-words">Galería del Templo</h2>
                     <p class="text-sm sm:text-sm mt-2 text-gris-oscuro break-words">Avance de la construcción<br />2021 – 2026</p>
                     <span class="inline-block mt-4 font-medium text-sm text-azul-cielo group-hover:underline">
@@ -157,7 +174,9 @@
                    target="_blank"
                    rel="noopener noreferrer"
                    class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 sm:p-8 text-center border-2 border-azul-claro hover:border-azul-marino hover-lift w-full no-overflow">
-                    <div class="text-4xl sm:text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">📍</div>
+                    <div class="mb-4">
+                        <i class="fas fa-map-marker-alt card-icon"></i>
+                    </div>
                     <h2 class="text-xl sm:text-xl font-bold text-azul-marino break-words">Cómo llegar</h2>
                     <p class="text-sm sm:text-sm mt-2 text-gris-oscuro break-words">Ubicación en Google Maps<br />Huarmey, Ancash</p>
                     <span class="inline-block mt-4 font-medium text-sm text-azul-marino group-hover:underline">
@@ -165,14 +184,6 @@
                     </span>
                 </a>
 
-            </div>
-
-            <!-- ===== VERSÍCULO ADICIONAL ===== -->
-            <div class="mt-6 sm:mt-8 text-center rounded-xl p-3 sm:p-4 w-full no-overflow bg-azul-marino/5 border border-azul-cielo/20">
-                <p class="text-sm sm:text-sm text-azul-marino break-words">
-                    <i class="fas fa-bible mr-2 text-dorado"></i>
-                    “Jesucristo es el mismo ayer, hoy y por los siglos” — Hebreos 13:8
-                </p>
             </div>
 
         </div>
