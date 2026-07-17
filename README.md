@@ -35,7 +35,6 @@ Síguenos en nuestras redes sociales para estar al día con nuestras actividades
 
 - 📘 **Facebook**: [Iglesia Evangélica Bautista Horeb - Huarmey](https://www.facebook.com/ieb.horeb.huarmey)
 - 📸 **Instagram**: [@ieb.horeb.huarmey](https://www.instagram.com/ieb.horeb.huarmey)
-- 💬 **WhatsApp**: [+51 947 388 484](https://wa.me/51947388484?text=Hola%20Iglesia%20Horeb%2C%20quiero%20más%20información)
 - 📧 **Email**: ieb.horeb.hy@gmail.com
 
 ### 📖 Nuestro Versículo
