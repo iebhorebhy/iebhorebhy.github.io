@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>Iglesia Evangélica Bautista Horeb - Huarmey</title>
+    <meta name="description" content="Iglesia Evangélica Bautista Horeb en Huarmey, Ancash. Conoce nuestros horarios de cultos, galería y cómo llegar. ¡Únete a nuestra comunidad!">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
@@ -18,6 +19,8 @@
         .bg-dorado { background-color: #c9a84c; }
         .text-dorado { color: #c9a84c; }
         .border-dorado { border-color: #c9a84c; }
+        .text-gris-claro { color: #d4e4f7; }
+        .text-gris-oscuro { color: #4a5568; }
 
         /* ===== ELIMINAR SCROLL HORIZONTAL ===== */
         * {
@@ -30,60 +33,54 @@
             width: 100% !important;
             max-width: 100% !important;
         }
-        body {
-            position: relative;
-        }
         img, svg, video, iframe {
             max-width: 100% !important;
             height: auto !important;
         }
-        .w-full {
-            width: 100% !important;
-            max-width: 100% !important;
-        }
-        .container-fluid {
-            width: 100% !important;
-            max-width: 100% !important;
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-        }
-        /* Evitar que cualquier elemento sobresalga */
         .no-overflow {
             overflow-x: hidden !important;
             max-width: 100% !important;
         }
-        /* Ajustar paddings en móvil */
-        @media (max-width: 640px) {
-            .px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
-            .px-6 { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
-            .px-8 { padding-left: 1.5rem !important; padding-right: 1.5rem !important; }
-            .mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
+        /* ===== EFECTOS Y MEJORAS VISUALES ===== */
+        .hover-lift {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .backdrop-blur-sm {
+            backdrop-filter: blur(4px);
         }
 
-        /* ===== RESPONSIVO: LETRAS MÁS GRANDES EN MÓVIL ===== */
-        html {
-            font-size: 18px;
+        /* ===== ICONOS DE REDES SOCIALES EN FOOTER ===== */
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            color: #c9a84c;
+            border: 1.5px solid #c9a84c;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            text-decoration: none;
         }
-        @media (min-width: 640px) {
-            html { font-size: 16px; }
+        .social-icon:hover {
+            background-color: #c9a84c;
+            color: #0d1b3e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
         }
-        @media (min-width: 1024px) {
-            html { font-size: 18px; }
-        }
-
-        /* ===== ESPACIADO MÁS AMPLIO EN MÓVIL ===== */
+        /* Versión más pequeña para móvil */
         @media (max-width: 640px) {
-            .p-6 { padding: 1.5rem !important; }
-            .py-12 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
-            .gap-4 { gap: 1.25rem !important; }
-            .text-xs { font-size: 0.9rem !important; }
-            .text-sm { font-size: 1rem !important; }
-            .text-base { font-size: 1.1rem !important; }
-            .text-lg { font-size: 1.25rem !important; }
-            .text-xl { font-size: 1.4rem !important; }
-            .text-2xl { font-size: 1.6rem !important; }
-            .text-3xl { font-size: 1.8rem !important; }
-            .text-4xl { font-size: 2.2rem !important; }
+            .social-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -92,51 +89,50 @@
     <!-- ============================================================ -->
     <!-- ========== ENCABEZADO CON LOGO Y AZUL ========== -->
     <!-- ============================================================ -->
-    <section class="relative w-full no-overflow" style="background: linear-gradient(135deg, #1a2a4a, #0d1b3e);">
+    <header class="relative w-full no-overflow bg-azul-profundo" style="background: linear-gradient(135deg, #1a2a4a, #0d1b3e);">
         <!-- Fondo decorativo -->
         <div class="absolute inset-0 opacity-10 no-overflow">
-            <div class="absolute top-0 left-0 w-72 h-72" style="background: #4a8db7; border-radius: 50%; filter: blur(80px); transform: translate(-30%, -30%);"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96" style="background: #c9a84c; border-radius: 50%; filter: blur(80px); transform: translate(30%, 30%);"></div>
+            <div class="absolute top-0 left-0 w-72 h-72 bg-azul-cielo rounded-full blur-[80px] -translate-x-1/3 -translate-y-1/3"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-dorado rounded-full blur-[80px] translate-x-1/3 translate-y-1/3"></div>
         </div>
 
         <div class="relative w-full max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-20 text-center no-overflow">
-            
+
             <!-- LOGO CENTRAL -->
             <div class="flex justify-center mb-4">
-                <img src="logo.jpg" 
-                     alt="Logo Iglesia Evangélica Bautista Horeb" 
-                     class="w-32 h-32 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-4 shadow-xl object-cover p-1"
-                     style="border-color: #c9a84c; background: #e8f0fe;" />
+                <img src="https://via.placeholder.com/160x160/1a2a4a/c9a84c?text=HOREB"
+                     alt="Logo de la Iglesia Evangélica Bautista Horeb"
+                     class="w-32 h-32 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full border-4 border-dorado shadow-xl object-cover p-1 bg-azul-claro" />
             </div>
 
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight break-words">
-                Iglesia Evangélica Bautista <span style="color: #c9a84c;">Horeb</span>
+                Iglesia Evangélica Bautista <span class="text-dorado">Horeb</span>
             </h1>
             <p class="text-lg sm:text-xl md:text-2xl font-light text-white/90 mt-2">
                 Huarmey - Ancash
             </p>
 
             <!-- Mensaje principal -->
-            <p class="text-base sm:text-lg md:text-xl italic text-white/90 mt-6 max-w-2xl mx-auto leading-relaxed break-words" style="color: #d4e4f7;">
+            <p class="text-base sm:text-lg md:text-xl italic text-white mt-6 max-w-2xl mx-auto leading-relaxed break-words">
                 “Cumpliendo la Gran Comisión con amor y fe 🌍💖.”
             </p>
 
-            <!-- ===== VERSÍCULO CON COMILLAS DOBLES ===== -->
-            <div class="mt-6 rounded-xl px-4 sm:px-6 py-4 max-w-xl mx-auto no-overflow" style="background: rgba(255,255,255,0.08); backdrop-filter: blur(4px); border: 1px solid rgba(74, 141, 183, 0.3);">
-                <p class="text-sm sm:text-sm md:text-base text-center break-words" style="color: #d4e4f7;">
-                    <i class="fas fa-quote-left text-sm mr-1" style="color: #c9a84c;"></i>
+            <!-- ===== VERSÍCULO ===== -->
+            <div class="mt-6 rounded-xl px-4 sm:px-6 py-4 max-w-xl mx-auto no-overflow bg-white/10 backdrop-blur-sm border border-azul-cielo/30">
+                <p class="text-sm sm:text-sm md:text-base text-center break-words text-gris-claro">
+                    <i class="fas fa-quote-left text-sm mr-1 text-dorado"></i>
                     <span class="italic">Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos.</span>
-                    <i class="fas fa-quote-right text-sm ml-1" style="color: #c9a84c;"></i>
-                    <span class="block mt-1 text-sm sm:text-sm font-medium" style="color: #c9a84c;">— Mateo 18:20</span>
+                    <i class="fas fa-quote-right text-sm ml-1 text-dorado"></i>
+                    <span class="block mt-1 text-sm sm:text-sm font-medium text-dorado">— Mateo 18:20</span>
                 </p>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- ============================================================ -->
-    <!-- ========== SECCIÓN PRINCIPAL (FONDO AZUL CLARO) ========== -->
+    <!-- ========== SECCIÓN PRINCIPAL ========== -->
     <!-- ============================================================ -->
-    <section class="w-full no-overflow" style="background: #e8f0fe;">
+    <section class="w-full no-overflow bg-azul-claro">
 
         <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 no-overflow">
 
@@ -147,12 +143,11 @@
                 <a href="https://photos.app.goo.gl/A7XESn1ECk4CuwS88"
                    target="_blank"
                    rel="noopener noreferrer"
-                   class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 sm:p-8 text-center border-2 hover:-translate-y-1 w-full no-overflow"
-                   style="border-color: #d4e4f7; hover:border-color: #4a8db7;">
+                   class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 sm:p-8 text-center border-2 border-azul-claro hover:border-azul-cielo hover-lift w-full no-overflow">
                     <div class="text-4xl sm:text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">📸</div>
-                    <h2 class="text-xl sm:text-xl font-bold break-words" style="color: #1a2a4a;">Galería del Templo</h2>
-                    <p class="text-sm sm:text-sm mt-2 break-words" style="color: #6b7a8f;">Avance de la construcción<br />2021 – 2026</p>
-                    <span class="inline-block mt-4 font-medium text-sm group-hover:underline" style="color: #4a8db7;">
+                    <h2 class="text-xl sm:text-xl font-bold text-azul-marino break-words">Galería del Templo</h2>
+                    <p class="text-sm sm:text-sm mt-2 text-gris-oscuro break-words">Avance de la construcción<br />2021 – 2026</p>
+                    <span class="inline-block mt-4 font-medium text-sm text-azul-cielo group-hover:underline">
                         Ver fotos <i class="fas fa-arrow-right ml-1"></i>
                     </span>
                 </a>
@@ -161,12 +156,11 @@
                 <a href="https://maps.app.goo.gl/HhNX4a6jHorNG8aw5"
                    target="_blank"
                    rel="noopener noreferrer"
-                   class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 sm:p-8 text-center border-2 hover:-translate-y-1 w-full no-overflow"
-                   style="border-color: #d4e4f7; hover:border-color: #1a2a4a;">
+                   class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 sm:p-8 text-center border-2 border-azul-claro hover:border-azul-marino hover-lift w-full no-overflow">
                     <div class="text-4xl sm:text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">📍</div>
-                    <h2 class="text-xl sm:text-xl font-bold break-words" style="color: #1a2a4a;">Cómo llegar</h2>
-                    <p class="text-sm sm:text-sm mt-2 break-words" style="color: #6b7a8f;">Ubicación en Google Maps<br />Huarmey, Ancash</p>
-                    <span class="inline-block mt-4 font-medium text-sm group-hover:underline" style="color: #1a2a4a;">
+                    <h2 class="text-xl sm:text-xl font-bold text-azul-marino break-words">Cómo llegar</h2>
+                    <p class="text-sm sm:text-sm mt-2 text-gris-oscuro break-words">Ubicación en Google Maps<br />Huarmey, Ancash</p>
+                    <span class="inline-block mt-4 font-medium text-sm text-azul-marino group-hover:underline">
                         Ver mapa <i class="fas fa-arrow-right ml-1"></i>
                     </span>
                 </a>
@@ -174,9 +168,9 @@
             </div>
 
             <!-- ===== VERSÍCULO ADICIONAL ===== -->
-            <div class="mt-6 sm:mt-8 text-center rounded-xl p-3 sm:p-4 w-full no-overflow" style="background: rgba(26, 42, 74, 0.05); border: 1px solid rgba(74, 141, 183, 0.2);">
-                <p class="text-sm sm:text-sm break-words" style="color: #1a2a4a;">
-                    <i class="fas fa-bible mr-2" style="color: #c9a84c;"></i>
+            <div class="mt-6 sm:mt-8 text-center rounded-xl p-3 sm:p-4 w-full no-overflow bg-azul-marino/5 border border-azul-cielo/20">
+                <p class="text-sm sm:text-sm text-azul-marino break-words">
+                    <i class="fas fa-bible mr-2 text-dorado"></i>
                     “Jesucristo es el mismo ayer, hoy y por los siglos” — Hebreos 13:8
                 </p>
             </div>
@@ -185,48 +179,46 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- ========== SECCIÓN DE HORARIOS (FONDO BLANCO) ========== -->
+    <!-- ========== SECCIÓN DE HORARIOS ========== -->
     <!-- ============================================================ -->
     <section class="w-full bg-white no-overflow">
 
         <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 no-overflow">
 
             <!-- ===== HORARIOS DE CULTOS ===== -->
-            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-10 border-t-4 w-full no-overflow" style="border-color: #4a8db7;">
-                
-                <!-- Título de horarios -->
+            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-10 border-t-4 border-azul-cielo w-full no-overflow">
+
                 <div class="flex flex-col sm:flex-row items-center justify-between mb-6 gap-3">
-                    <h2 class="text-2xl sm:text-2xl font-bold break-words" style="color: #1a2a4a;">
-                        <i class="fas fa-clock mr-2" style="color: #4a8db7;"></i> Horario de Cultos
+                    <h2 class="text-2xl sm:text-2xl font-bold text-azul-marino break-words">
+                        <i class="fas fa-clock mr-2 text-azul-cielo"></i> Horario de Cultos
                     </h2>
                 </div>
 
-                <!-- Grid de horarios -->
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-4 md:gap-6 w-full no-overflow">
-                    
+
                     <!-- Miércoles -->
-                    <div class="bg-azul-claro rounded-xl p-5 sm:p-5 text-center w-full no-overflow" style="background: #e8f0fe;">
-                        <p class="font-bold text-base sm:text-base break-words" style="color: #1a2a4a;">Miércoles</p>
-                        <p class="text-sm sm:text-sm break-words" style="color: #4a8db7;">
+                    <div class="bg-azul-claro rounded-xl p-5 sm:p-5 text-center w-full no-overflow">
+                        <p class="font-bold text-base sm:text-base text-azul-marino break-words">Miércoles</p>
+                        <p class="text-sm sm:text-sm text-azul-cielo break-words">
                             <i class="fas fa-clock mr-1"></i> 7:00 PM - 9:00 PM
                         </p>
                     </div>
 
                     <!-- Sábado -->
-                    <div class="bg-azul-claro rounded-xl p-5 sm:p-5 text-center w-full no-overflow" style="background: #e8f0fe;">
-                        <p class="font-bold text-base sm:text-base break-words" style="color: #1a2a4a;">Sábado</p>
-                        <p class="text-sm sm:text-sm break-words" style="color: #4a8db7;">
+                    <div class="bg-azul-claro rounded-xl p-5 sm:p-5 text-center w-full no-overflow">
+                        <p class="font-bold text-base sm:text-base text-azul-marino break-words">Sábado</p>
+                        <p class="text-sm sm:text-sm text-azul-cielo break-words">
                             <i class="fas fa-clock mr-1"></i> 7:00 PM - 9:00 PM
                         </p>
                     </div>
 
                     <!-- Domingo -->
-                    <div class="rounded-xl p-5 sm:p-5 text-center w-full no-overflow" style="background: #c9a84c; color: white;">
+                    <div class="bg-dorado rounded-xl p-5 sm:p-5 text-center w-full no-overflow text-white">
                         <p class="font-bold text-base sm:text-base break-words">Domingo</p>
                         <p class="text-sm sm:text-sm break-words">
                             <i class="fas fa-clock mr-1"></i> 9:00 AM - 1:00 PM
                         </p>
-                        <span class="text-xs sm:text-xs font-medium inline-block mt-2 px-3 py-1 rounded-full break-words" style="background: rgba(255,255,255,0.25);">
+                        <span class="text-xs sm:text-xs font-medium inline-block mt-2 px-3 py-1 rounded-full bg-white/25 break-words">
                             ⭐ Culto Principal
                         </span>
                     </div>
@@ -239,97 +231,60 @@
     </section>
 
     <!-- ============================================================ -->
-    <!-- ========== SECCIÓN DE REDES SOCIALES ========== -->
+    <!-- ========== FOOTER CON REDES SOCIALES ========== -->
     <!-- ============================================================ -->
-    <section class="w-full no-overflow" style="background: #e8f0fe;">
-        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12 md:pb-16 no-overflow">
-            <div class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 text-center w-full border-t-4 no-overflow" style="border-color: #c9a84c;">
-                
-                <h3 class="text-xl sm:text-lg font-bold break-words" style="color: #1a2a4a;">
-                    <i class="fas fa-share-alt mr-2" style="color: #4a8db7;"></i> Síguenos en Redes Sociales
-                </h3>
-                <p class="text-sm sm:text-sm mt-1 break-words" style="color: #6b7a8f;">
-                    Conéctate con nuestra comunidad
-                </p>
-
-                <!-- Iconos de redes sociales -->
-                <div class="flex justify-center items-center gap-6 sm:gap-6 mt-4 flex-wrap no-overflow">
-                    
-                    <!-- FACEBOOK -->
-                    <a href="https://www.facebook.com/ieb.horeb.huarmey" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="group flex flex-col items-center transition-all hover:-translate-y-1">
-                        <div class="w-12 h-12 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white shadow-md transition-all group-hover:shadow-lg" 
-                             style="background: #1877f2; font-size: 1.3rem;">
-                            <i class="fab fa-facebook-f"></i>
-                        </div>
-                        <span class="text-xs sm:text-xs font-medium mt-1.5 break-words" style="color: #1a2a4a;">Facebook</span>
-                    </a>
-
-                    <!-- INSTAGRAM -->
-                    <a href="https://www.instagram.com/ieb.horeb.huarmey" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="group flex flex-col items-center transition-all hover:-translate-y-1">
-                        <div class="w-12 h-12 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white shadow-md transition-all group-hover:shadow-lg" 
-                             style="background: radial-gradient(circle at 30% 30%, #fdf497, #fdf497 20%, #fd5949 45%, #d6249f 70%, #285aeb 100%); font-size: 1.3rem;">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <span class="text-xs sm:text-xs font-medium mt-1.5 break-words" style="color: #1a2a4a;">Instagram</span>
-                    </a>
-
-                    <!-- WHATSAPP -->
-                    <a href="https://wa.me/51947388484?text=Hola%20Iglesia%20Horeb%2C%20quiero%20más%20información" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="group flex flex-col items-center transition-all hover:-translate-y-1">
-                        <div class="w-12 h-12 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white shadow-md transition-all group-hover:shadow-lg" 
-                             style="background: #25D366; font-size: 1.3rem;">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <span class="text-xs sm:text-xs font-medium mt-1.5 break-words" style="color: #1a2a4a;">WhatsApp</span>
-                    </a>
-
-                    <!-- YOUTUBE -->
-                    <a href="#" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       class="group flex flex-col items-center transition-all hover:-translate-y-1">
-                        <div class="w-12 h-12 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-white shadow-md transition-all group-hover:shadow-lg" 
-                             style="background: #FF0000; font-size: 1.3rem;">
-                            <i class="fab fa-youtube"></i>
-                        </div>
-                        <span class="text-xs sm:text-xs font-medium mt-1.5 break-words" style="color: #1a2a4a;">YouTube</span>
-                    </a>
-
-                </div>
-
-                <!-- Email de contacto -->
-                <div class="mt-5 pt-4 border-t no-overflow" style="border-color: #e8f0fe;">
-                    <p class="text-sm sm:text-sm break-words" style="color: #6b7a8f;">
-                        <i class="fas fa-envelope mr-2" style="color: #c9a84c;"></i>
-                        <a href="mailto:ieb.horeb.hy@gmail.com" class="hover:underline break-words" style="color: #4a8db7;">
-                            ieb.horeb.hy@gmail.com
-                        </a>
-                    </p>
-                </div>
-
-            </div>
+    <footer class="w-full text-center py-6 sm:py-8 px-4 no-overflow bg-azul-profundo">
+        
+        <!-- Redes Sociales - Solo iconos -->
+        <div class="flex justify-center items-center gap-3 sm:gap-4 mb-4">
+            <a href="https://www.facebook.com/ieb.horeb.huarmey" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="social-icon" 
+               aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/ieb.horeb.huarmey" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="social-icon" 
+               aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/51947388484?text=Hola%20Iglesia%20Horeb%2C%20quiero%20más%20información" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="social-icon" 
+               aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="social-icon" 
+               aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="mailto:ieb.horeb.hy@gmail.com" 
+               class="social-icon" 
+               aria-label="Correo electrónico">
+                <i class="fas fa-envelope"></i>
+            </a>
         </div>
-    </section>
 
-    <!-- ============================================================ -->
-    <!-- ========== PIE DE PÁGINA ========== -->
-    <!-- ============================================================ -->
-    <footer class="w-full text-center py-6 sm:py-8 px-4 no-overflow" style="background: #0d1b3e; color: #c9a84c;">
-        <p class="text-sm sm:text-sm break-words" style="color: #c9a84c;">
-            © 2026 Iglesia Evangélica Bautista Horeb · Huarmey
+        <!-- Información de la iglesia -->
+        <p class="text-sm sm:text-sm text-dorado break-words">
+            &copy; <span id="currentYear"></span> Iglesia Evangélica Bautista Horeb · Huarmey
         </p>
-        <p class="text-xs sm:text-xs mt-1 break-words" style="color: #4a8db7; opacity: 0.7;">
+        <p class="text-xs sm:text-xs mt-1 text-azul-cielo/70 break-words">
             “Cumpliendo la Gran Comisión con amor y fe”
         </p>
     </footer>
+
+    <script>
+        // Actualiza el año automáticamente en el footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 
 </body>
 </html>
