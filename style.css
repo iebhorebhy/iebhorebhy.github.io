@@ -152,6 +152,71 @@ iframe {
     animation-delay: 0.4s;
 }
 
+/* ===== APARICIÓN AL HACER SCROLL (REVEAL) ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ===== CONTADOR REGRESIVO ===== */
+.contador-caja {
+    min-width: 76px;
+    padding: 12px 8px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #1a2a4a, #0d1b3e);
+    border: 2px solid rgba(201, 168, 76, 0.5);
+    box-shadow: 0 10px 25px rgba(13, 27, 62, 0.25);
+    color: #fff;
+    text-align: center;
+}
+.contador-caja > span:first-child {
+    display: block;
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: #c9a84c;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+}
+.contador-etiqueta {
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 4px;
+}
+.contador-separador {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #c9a84c;
+    align-self: center;
+    line-height: 1;
+}
+@media (max-width: 640px) {
+    .contador-caja {
+        min-width: 62px;
+        padding: 10px 6px;
+    }
+    .contador-caja > span:first-child {
+        font-size: 1.4rem;
+    }
+    .contador-separador {
+        font-size: 1.1rem;
+    }
+}
+
 /* ===== BOTÓN WHATSAPP FLOTANTE ===== */
 .whatsapp-float {
     position: fixed;
@@ -196,6 +261,335 @@ iframe {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+/* ============================================================ */
+/* ===== INVITACIÓN ANIVERSARIO (MODAL) ===== */
+/* ============================================================ */
+.invitacion-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(13, 27, 62, 0.85);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+.invitacion-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.invitacion-card {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    max-height: 92vh;
+    overflow-y: auto;
+    text-align: center;
+    background: linear-gradient(160deg, #ffffff 0%, #f4f8ff 55%, #e8f0fe 100%);
+    border-radius: 24px;
+    padding: 36px 28px 32px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+    border: 3px solid rgba(201, 168, 76, 0.5);
+    background-image:
+        radial-gradient(circle at top left, rgba(201, 168, 76, 0.15), transparent 45%),
+        radial-gradient(circle at bottom right, rgba(74, 141, 183, 0.18), transparent 45%),
+        linear-gradient(160deg, #ffffff 0%, #f4f8ff 55%, #e8f0fe 100%);
+}
+
+.invitacion-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(26, 42, 74, 0.1);
+    color: #1a2a4a;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+.invitacion-close:hover {
+    background: #1a2a4a;
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+.invitacion-decoracion {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c9a84c, #b8942e);
+    color: #fff;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(201, 168, 76, 0.45);
+    animation: pulsoInvitacion 2s ease-in-out infinite;
+}
+@keyframes pulsoInvitacion {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+}
+
+.invitacion-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #4a8db7;
+    margin-bottom: 6px;
+}
+
+.invitacion-titulo {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #1a2a4a;
+}
+.invitacion-dorado {
+    color: #c9a84c;
+}
+.invitacion-titulo span {
+    display: block;
+}
+
+.invitacion-datos {
+    margin: 18px 0 14px;
+    padding: 14px 10px;
+    background: rgba(74, 141, 183, 0.1);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.invitacion-datos p {
+    font-size: 0.95rem;
+    color: #1a2a4a;
+}
+.invitacion-datos i {
+    color: #c9a84c;
+    margin-right: 6px;
+}
+
+.invitacion-mensaje {
+    font-size: 0.92rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.invitacion-verso {
+    margin: 16px 0;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #4a8db7;
+    background: rgba(201, 168, 76, 0.1);
+    padding: 12px;
+    border-radius: 12px;
+    border-left: 3px solid #c9a84c;
+}
+.invitacion-verso .block {
+    margin-top: 6px;
+    font-style: normal;
+    font-weight: 700;
+    color: #c9a84c;
+}
+
+.invitacion-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #25D366, #1ebe5b);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+.invitacion-boton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 35px rgba(37, 211, 102, 0.45);
+}
+
+/* ===== DESPLIEGUE APOYO DENTRO DE LA INVITACIÓN ===== */
+.invitacion-apoyo {
+    margin-top: 14px;
+}
+.invitacion-apoyo-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 16px;
+    border-radius: 50px;
+    border: 2px solid rgba(201, 168, 76, 0.6);
+    background: rgba(201, 168, 76, 0.12);
+    color: #1a2a4a;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.invitacion-apoyo-toggle:hover {
+    background: rgba(201, 168, 76, 0.25);
+    border-color: #c9a84c;
+}
+.invitacion-apoyo-toggle i:first-child {
+    color: #c9a84c;
+}
+.inv-apoyo-flecha {
+    margin-left: auto;
+    color: #c9a84c;
+    transition: transform 0.3s ease;
+}
+.invitacion-apoyo-toggle.abierto .inv-apoyo-flecha {
+    transform: rotate(180deg);
+}
+
+.invitacion-apoyo-contenido {
+    display: none;
+    margin-top: 12px;
+    text-align: left;
+    background: rgba(74, 141, 183, 0.08);
+    border: 1px solid rgba(74, 141, 183, 0.25);
+    border-radius: 16px;
+    padding: 16px;
+}
+.invitacion-apoyo-contenido.abierto {
+    display: block;
+    animation: fadeInUp 0.4s ease-out forwards;
+}
+.invitacion-apoyo-meta {
+    font-size: 0.9rem;
+    color: #1a2a4a;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.invitacion-apoyo-lista {
+    list-style: none;
+    margin: 0 0 12px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.invitacion-apoyo-lista li {
+    font-size: 0.85rem;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.invitacion-apoyo-lista li i {
+    color: #c9a84c;
+    width: 16px;
+    text-align: center;
+}
+.invitacion-apoyo-lista .prioridad {
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #c9a84c;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+.invitacion-apoyo-banco {
+    font-size: 0.82rem;
+    color: #1a2a4a;
+    background: rgba(201, 168, 76, 0.12);
+    border-left: 3px solid #c9a84c;
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+.invitacion-apoyo-banco .font-bold {
+    color: #1a2a4a;
+}
+.invitacion-apoyo-banco strong {
+    color: #b8942e;
+}
+.invitacion-apoyo-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    padding: 11px 16px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #25D366, #1ebe5b);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+}
+.invitacion-apoyo-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.4);
+}
+
+/* ===== SERPENTINAS Y CONFETI ===== */
+.confetti-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.confetti-piece {
+    position: absolute;
+    top: -20px;
+    animation: caerConfeti linear forwards;
+}
+.confetti-rectangle {
+    width: 10px;
+    height: 5px;
+    border-radius: 2px;
+}
+.confetti-circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.confetti-ribbon {
+    width: 16px;
+    height: 4px;
+    border-radius: 2px;
+}
+@keyframes caerConfeti {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0.6;
+    }
 }
 
 /* ===== SCROLLBAR PERSONALIZADA ===== */
