@@ -53,7 +53,7 @@
 
             <div class="invitacion-datos">
                 <p><i class="fas fa-calendar-check"></i> Domingo, <strong>31 de octubre</strong></p>
-                <!-- <p><i class="fas fa-clock"></i> <strong>HORA POR DEFINIR</strong></p> -->
+                <p><i class="fas fa-clock"></i> <strong>3:00 p. m.</strong></p>
                 <p><i class="fas fa-map-marker-alt"></i> A.H. Miramar Mz. R Lote 19 - Huarmey, Ancash</p>
             </div>
 
@@ -92,14 +92,10 @@
                     <ul class="invitacion-apoyo-lista">
                         <li><i class="fas fa-home"></i> Techado de parte del templo <span class="prioridad">Prioridad</span></li>
                         <li><i class="fas fa-bolt"></i> Instalaciones eléctricas</li>
-                        <li><i class="fas fa-faucet-drip"></i> Agua y desagüe</li>
-                        <li><i class="fas fa-door-open"></i> Puertas y ventanas</li>
                         <li><i class="fas fa-paint-roller"></i> Pintura y materiales</li>
+                        <li><i class="fas fa-volume-high"></i> Sistema de sonido <span class="prioridad">Prioridad</span></li>
+                        <li><i class="fas fa-network-wired"></i> Cableado estructurado (Internet) <span class="prioridad">Prioridad</span></li>
                     </ul>
-
-                    <p class="invitacion-apoyo-meta">
-                        <i class="fas fa-tv mr-1"></i> Necesidad especial: <strong>proyector</strong> o un <strong>TV de 65"</strong>.
-                    </p>
 
                     <div class="invitacion-apoyo-banco">
                         <p class="font-bold">Banco de la Nación · Ahorros · Soles (S/)</p>
@@ -117,6 +113,7 @@
         </div>
     </div>
 
+
     <!-- ============================================================ -->
     <!-- ========== BOTÓN WHATSAPP FLOTANTE ========== -->
     <!-- ============================================================ -->
@@ -124,6 +121,13 @@
         rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Botón de sonido -->
+    <button type="button" class="sonido-float" id="sonidoBtn" onclick="alternarSonido()"
+        aria-label="Activar o desactivar la música" aria-pressed="false">
+        <i class="fas fa-volume-off" id="sonidoIcono"></i>
+    </button>
+    <audio id="himnoAudio" src="audio/himno.mp3" loop preload="none"></audio>
 
     <!-- ============================================================ -->
     <!-- ========== ENCABEZADO ========== -->
@@ -221,10 +225,283 @@
     </div>
 
     <!-- ============================================================ -->
+    <!-- ========== SECCIÓN: CAMPAÑA DE CONSTRUCCIÓN ========== -->
+    <!-- ============================================================ -->
+    <section id="construccion" class="w-full bg-azul-claro no-overflow">
+        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 no-overflow">
+
+            <!-- Encabezado -->
+            <div class="text-center mb-10">
+                <span class="text-dorado font-semibold text-sm tracking-wider uppercase">Campaña de Construcción</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-azul-marino mt-2">
+                    Ayuda a Construir Nuestro Nuevo Templo
+                </h2>
+                <div class="w-24 h-1 bg-dorado mx-auto mt-4 rounded-full"></div>
+                <p class="text-gris-oscuro mt-4 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+                    Con mucha gratitud a Dios, les saludamos en el amor de nuestro Señor Jesucristo de parte de la
+                    <strong class="text-azul-marino">Asociación Iglesia Evangélica Bautista Horeb de Huarmey</strong>,
+                </p>
+            </div>
+
+            <!-- Avances de la construcción (carrusel) -->
+            <div
+                class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border-t-4 border-dorado w-full no-overflow mb-6 reveal"
+                data-delay="0">
+                <div class="flex items-center justify-between gap-4 flex-wrap mb-5">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-dorado/20 p-3 rounded-xl">
+                            <i class="fas fa-camera-retro text-2xl text-dorado"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-bold text-azul-marino">Avances de la construcción</h3>
+                            <p class="text-gris-oscuro text-sm">Así va creciendo nuestro templo en Huarmey</p>
+                        </div>
+                    </div>
+                    <a href="https://photos.app.goo.gl/A7XESn1ECk4CuwS88" target="_blank" rel="noopener noreferrer"
+                        class="text-sm font-medium text-azul-marino hover:underline whitespace-nowrap">
+                        <i class="fas fa-images mr-1"></i> Ver galería completa
+                    </a>
+                </div>
+
+                <div id="avancesCarrusel"
+                    class="relative overflow-hidden rounded-xl aspect-[4/3] sm:aspect-[16/10]">
+                    <div id="avancesPista" class="flex h-full transition-transform duration-500 ease-out">
+
+                        <figure class="shrink-0 w-full">
+                            <div class="avances-marco bg-gradient-azul relative w-full h-full">
+                                <span class="absolute inset-0 flex items-center justify-center text-white/50 text-4xl"><i class="fas fa-image"></i></span>
+                                <img src="fotos/avance-5.jpg" alt="Avance de la construcción del templo, foto 1 de 5"
+                                    class="w-full h-full object-cover" loading="lazy" onerror="this.classList.add('oculta')">
+                            </div>
+                        </figure>
+
+                        <figure class="shrink-0 w-full">
+                            <div class="avances-marco bg-gradient-azul relative w-full h-full">
+                                <span class="absolute inset-0 flex items-center justify-center text-white/50 text-4xl"><i class="fas fa-image"></i></span>
+                                <img src="fotos/avance-4.jpg" alt="Avance de la construcción del templo, foto 2 de 5"
+                                    class="w-full h-full object-cover" loading="lazy" onerror="this.classList.add('oculta')">
+                            </div>
+                        </figure>
+
+                        <figure class="shrink-0 w-full">
+                            <div class="avances-marco bg-gradient-azul relative w-full h-full">
+                                <span class="absolute inset-0 flex items-center justify-center text-white/50 text-4xl"><i class="fas fa-image"></i></span>
+                                <img src="fotos/avance-3.jpg" alt="Avance de la construcción del templo, foto 3 de 5"
+                                    class="w-full h-full object-cover" loading="lazy" onerror="this.classList.add('oculta')">
+                            </div>
+                        </figure>
+
+                        <figure class="shrink-0 w-full">
+                            <div class="avances-marco bg-gradient-azul relative w-full h-full">
+                                <span class="absolute inset-0 flex items-center justify-center text-white/50 text-4xl"><i class="fas fa-image"></i></span>
+                                <img src="fotos/avance-2.jpg" alt="Avance de la construcción del templo, foto 4 de 5"
+                                    class="w-full h-full object-cover" loading="lazy" onerror="this.classList.add('oculta')">
+                            </div>
+                        </figure>
+
+                        <figure class="shrink-0 w-full">
+                            <div class="avances-marco bg-gradient-azul relative w-full h-full">
+                                <span class="absolute inset-0 flex items-center justify-center text-white/50 text-4xl"><i class="fas fa-image"></i></span>
+                                <img src="fotos/avance-1.jpg" alt="Avance de la construcción del templo, foto 5 de 5"
+                                    class="w-full h-full object-cover" loading="lazy" onerror="this.classList.add('oculta')">
+                            </div>
+                        </figure>
+
+                    </div>
+
+                    <button type="button"
+                        class="avances-btn absolute top-1/2 -translate-y-1/2 left-3 w-9 h-9 sm:left-4 sm:w-10 sm:h-10 rounded-full bg-white/90 text-azul-marino shadow-lg flex items-center justify-center cursor-pointer"
+                        onclick="moverAvance(-1)" aria-label="Foto anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button type="button"
+                        class="avances-btn absolute top-1/2 -translate-y-1/2 right-3 w-9 h-9 sm:right-4 sm:w-10 sm:h-10 rounded-full bg-white/90 text-azul-marino shadow-lg flex items-center justify-center cursor-pointer"
+                        onclick="moverAvance(1)" aria-label="Foto siguiente">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <div id="avancesPuntos" class="absolute bottom-3 sm:bottom-4 left-0 right-0 flex justify-center gap-2 z-10"></div>
+                </div>
+            </div>
+
+            <!-- Meta de construcción -->
+            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-10 border-t-4 border-dorado w-full no-overflow mb-6 reveal" data-delay="0">
+                <div class="flex items-center gap-3 mb-5">
+                    <div class="bg-dorado/20 p-3 rounded-xl">
+                        <i class="fas fa-bullseye text-2xl text-dorado"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-azul-marino">Metas actuales de la construcción</h3>
+                        <p class="text-gris-oscuro text-sm">Recaudar aproximadamente <strong class="text-dorado">S/ 100,000</strong> para:</p>
+                    </div>
+                </div>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gris-oscuro">
+                    <li class="bg-azul-claro rounded-lg px-4 py-3">
+                        <i class="fas fa-home text-dorado mr-2"></i> Techado de una parte importante del templo
+                        <span class="inline-block ml-1 px-2 py-0.5 bg-dorado text-white text-xs font-bold rounded-full">Prioridad</span>
+                    </li>
+                    <li class="bg-azul-claro rounded-lg px-4 py-3">
+                        <i class="fas fa-volume-high text-dorado mr-2"></i> Sistema de sonido
+                        <span class="inline-block ml-1 px-2 py-0.5 bg-dorado text-white text-xs font-bold rounded-full">Prioridad</span>
+                    </li>
+                    <li class="bg-azul-claro rounded-lg px-4 py-3">
+                        <i class="fas fa-network-wired text-dorado mr-2"></i> Cableado estructurado (Internet)
+                        <span class="inline-block ml-1 px-2 py-0.5 bg-dorado text-white text-xs font-bold rounded-full">Prioridad</span>
+                    </li>
+                    <li class="bg-azul-claro rounded-lg px-4 py-3">
+                        <i class="fas fa-bolt text-dorado mr-2"></i> Instalaciones eléctricas
+                    </li>
+                    <li class="bg-azul-claro rounded-lg px-4 py-3 sm:col-span-2">
+                        <i class="fas fa-paint-roller text-dorado mr-2"></i> Pintura y materiales complementarios
+                    </li>
+                </ul>
+                <div class="mt-5 rounded-xl bg-dorado/10 border-l-4 border-dorado px-5 py-4">
+                    <p class="text-base sm:text-lg leading-relaxed text-azul-marino font-semibold">
+                        <i class="fas fa-quote-left text-dorado mr-2"></i>
+                        Gracias a la fidelidad del Señor, ya contamos con una
+                        <strong class="text-dorado">importante donación inicial del Hno. Martin Riquelme</strong>,
+                        que permite avanzar significativamente en la obra.
+                        <i class="fas fa-quote-right text-dorado ml-2"></i>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Mobiliario + Necesidad especial -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 no-overflow reveal" data-delay="100">
+                <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border-t-4 border-azul-cielo w-full no-overflow">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-azul-cielo/20 p-3 rounded-xl">
+                            <i class="fas fa-chair text-2xl text-azul-cielo"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-azul-marino">Mobiliario y equipamiento</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gris-oscuro">
+                        <li><i class="fas fa-check text-dorado mr-2"></i> Bancas y sillas para los asistentes</li>
+                        <li><i class="fas fa-check text-dorado mr-2"></i> Púlpito</li>
+                        <li><i class="fas fa-check text-dorado mr-2"></i> Equipamiento básico para las reuniones</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-azul rounded-2xl shadow-xl p-6 sm:p-8 text-white w-full no-overflow">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-white/10 p-3 rounded-xl">
+                            <i class="fas fa-volume-high text-2xl text-dorado"></i>
+                        </div>
+                        <h3 class="text-lg font-bold">Necesidades especiales</h3>
+                    </div>
+                    <p class="text-sm leading-relaxed text-white/90">
+                        Para el funcionamiento del templo necesitamos apoyo para un
+                        <strong class="text-dorado">sistema de sonido profesional</strong> (mezcladora, micrófonos, amplificador y altavoces)
+                        y para el <strong class="text-dorado">cableado estructurado (Internet)</strong>,
+                        que permitirá conectar todas las áreas del templo de manera estable.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cómo puedes apoyar -->
+            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-10 border-t-4 border-azul-marino w-full no-overflow mb-6 reveal" data-delay="0">
+                <h3 class="text-xl font-bold text-azul-marino mb-4">
+                    <i class="fas fa-hands-helping mr-2 text-dorado"></i> ¿Cómo puedes apoyar?
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-azul-claro rounded-xl p-5 text-center">
+                        <div class="text-3xl mb-2">🧱</div>
+                        <p class="font-bold text-sm text-azul-marino">Donación de materiales</p>
+                        <p class="text-xs text-gris-oscuro mt-1">De construcción o mobiliario</p>
+                    </div>
+                    <div class="bg-azul-claro rounded-xl p-5 text-center">
+                        <div class="text-3xl mb-2">❤️</div>
+                        <p class="font-bold text-sm text-azul-marino">Ofrendas y aportes</p>
+                        <p class="text-xs text-gris-oscuro mt-1">Económicos</p>
+                    </div>
+                    <div class="bg-azul-claro rounded-xl p-5 text-center">
+                        <div class="text-3xl mb-2">🎓</div>
+                        <p class="font-bold text-sm text-azul-marino">Otros aportes</p>
+                        <p class="text-xs text-gris-oscuro mt-1">Conocimientos, profesión o experiencia ministerial</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contacto + Datos bancarios -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 no-overflow reveal" data-delay="100">
+                <!-- Contacto -->
+                <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-full no-overflow">
+                    <h3 class="text-lg font-bold text-azul-marino mb-4">
+                        <i class="fas fa-phone-alt mr-2 text-dorado"></i> Contacto para coordinación
+                    </h3>
+                    <p class="font-semibold text-gris-oscuro">Ps. Luis David Alberto Inga</p>
+                    <div class="mt-3 space-y-2 text-sm text-gris-oscuro">
+                        <p>
+                            <a href="tel:+51947388484" class="hover:text-azul-cielo">
+                                <i class="fas fa-mobile-alt text-dorado mr-2"></i> +51 947 388 484
+                            </a>
+                        </p>
+                        <p>
+                            <a href="mailto:luisdavidalbertoinga@gmail.com" class="hover:text-azul-cielo break-words">
+                                <i class="fas fa-envelope text-dorado mr-2"></i> luisdavidalbertoinga@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                    <a href="https://wa.me/51947388484?text=Hola%20pastor%2C%20quiero%20apoyar%20la%20construcci%C3%B3n%20del%20nuevo%20templo.%20Aqu%C3%AD%20van%20mis%20datos%3A%20%5Bcoloca%20aqu%C3%AD%20tu%20nombre%20o%20tus%20datos%5D"
+                        target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-green-500 text-white text-sm font-bold hover:bg-green-600 transition-colors">
+                        <i class="fab fa-whatsapp"></i> Apoyar por WhatsApp
+                    </a>
+                </div>
+
+                <!-- Datos bancarios -->
+                <div class="bg-gradient-azul rounded-2xl shadow-xl p-6 sm:p-8 text-white w-full no-overflow">
+                    <h3 class="text-lg font-bold mb-4">
+                        <i class="fas fa-university mr-2 text-dorado"></i> Datos bancarios oficiales
+                    </h3>
+                    <dl class="text-sm space-y-2 text-white/90">
+                        <div class="flex justify-between gap-3">
+                            <dt class="text-white/70">Titular</dt>
+                            <dd class="text-right">Asociación IEB Horeb de Huarmey</dd>
+                        </div>
+                        <div class="flex justify-between gap-3">
+                            <dt class="text-white/70">Banco</dt>
+                            <dd>Banco de la Nación</dd>
+                        </div>
+                        <div class="flex justify-between gap-3">
+                            <dt class="text-white/70">Tipo de cuenta</dt>
+                            <dd>Ahorros · Soles (S/)</dd>
+                        </div>
+                        <div class="flex justify-between gap-3 border-t border-white/15 pt-2">
+                            <dt class="text-white/70">N.° de cuenta</dt>
+                            <dd class="font-bold text-dorado">04-254-098561</dd>
+                        </div>
+                        <div class="flex justify-between gap-3">
+                            <dt class="text-white/70">CCI</dt>
+                            <dd class="text-right font-mono text-xs break-all">018-784-004254098561-93</dd>
+                        </div>
+                    </dl>
+                    <div class="mt-4 bg-white/10 rounded-xl p-4 text-xs text-white/80">
+                        <p class="font-semibold text-dorado mb-1"><i class="fas fa-globe-americas mr-1"></i> Transferencias internacionales</p>
+                        <p><span class="text-white/70">Código SWIFT:</span> <strong>BANCPEPL</strong></p>
+                        <p class="mt-1 text-white/70">Av. Javier Prado Este 2499, San Borja - Lima, Perú · Banco de la Nación</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Versículo -->
+            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 text-center w-full no-overflow border-l-4 border-dorado reveal" data-delay="0">
+                <p class="italic text-gris-oscuro text-base sm:text-lg leading-relaxed">
+                    <i class="fas fa-quote-left text-dorado mr-1"></i>
+                    “Cada uno dé como propuso en su corazón; no con tristeza, ni por necesidad, porque Dios ama al dador
+                    alegre.”
+                    <i class="fas fa-quote-right text-dorado ml-1"></i>
+                </p>
+                <p class="mt-2 font-bold text-dorado">2 Corintios 9:7</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- ========== SECCIÓN PRINCIPAL ========== -->
     <!-- ============================================================ -->
     <section class="w-full no-overflow bg-azul-claro">
-
         <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 no-overflow">
 
             <!-- ===== TARJETAS: GALERÍA + UBICACIÓN + SOBRE NOSOTROS ===== -->
@@ -237,7 +514,7 @@
                         <i class="fas fa-images card-icon"></i>
                     </div>
                     <h2 class="text-xl sm:text-xl font-bold text-azul-marino break-words">Galería del Templo</h2>
-                    <p class="text-sm sm:text-sm mt-2 text-gris-oscuro break-words">Avance de la construcción<br />2021
+                    <p class="text-sm sm:text-sm mt-2 text-gris-oscuro break-words">Fotos de la iglesia y el templo<br />2021
                         – 2026</p>
                     <span class="inline-block mt-4 font-medium text-sm text-azul-cielo group-hover:underline">
                         Ver fotos <i class="fas fa-arrow-right ml-1"></i>
@@ -265,8 +542,7 @@
                         <i class="fas fa-church card-icon" style="color: #c9a84c;"></i>
                     </div>
                     <h2 class="text-xl sm:text-xl font-bold text-azul-marino break-words">Sobre Nosotros</h2>
-                    <p class="text-sm sm:text-sm mt-2 text-gris-oscuro break-words">A.H. Miramar Mz. R Lote 19<br />cerca
-                        del Hospital de Huarmey</p>
+                    <p class="text-sm sm:text-sm mt-2 text-gris-oscuro break-words">Nuestra historia, misión<br />y visión</p>
                     <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})"
                         class="inline-block mt-4 font-medium text-sm text-dorado hover:underline cursor-pointer">
                         Leer más <i class="fas fa-arrow-right ml-1"></i>
@@ -427,194 +703,6 @@
         </div>
     </section>
 
-    <!-- ============================================================ -->
-    <!-- ========== SECCIÓN: CAMPAÑA DE CONSTRUCCIÓN ========== -->
-    <!-- ============================================================ -->
-    <section id="construccion" class="w-full bg-azul-claro no-overflow">
-        <div class="w-full max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 no-overflow">
-
-            <!-- Encabezado -->
-            <div class="text-center mb-10">
-                <span class="text-dorado font-semibold text-sm tracking-wider uppercase">Campaña de Construcción</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-azul-marino mt-2">
-                    Ayuda a Construir Nuestro Nuevo Templo
-                </h2>
-                <div class="w-24 h-1 bg-dorado mx-auto mt-4 rounded-full"></div>
-                <p class="text-gris-oscuro mt-4 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-                    Con mucha gratitud a Dios, les saludamos en el amor de nuestro Señor Jesucristo de parte de la
-                    <strong class="text-azul-marino">Asociación Iglesia Evangélica Bautista Horeb de Huarmey</strong>,
-                    ubicada en el <strong class="text-azul-marino">A.H. Miramar Mz. R Lote 19 – Huarmey – Ancash – Perú</strong>
-                    (cerca del Hospital de Huarmey y del Nuevo Centro Poblado).
-                </p>
-            </div>
-
-            <!-- Meta de construcción -->
-            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-10 border-t-4 border-dorado w-full no-overflow mb-6 reveal" data-delay="0">
-                <div class="flex items-center gap-3 mb-5">
-                    <div class="bg-dorado/20 p-3 rounded-xl">
-                        <i class="fas fa-bullseye text-2xl text-dorado"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-azul-marino">Metas actuales de la construcción</h3>
-                        <p class="text-gris-oscuro text-sm">Recaudar aproximadamente <strong class="text-dorado">S/ 100,000</strong> para:</p>
-                    </div>
-                </div>
-                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gris-oscuro">
-                    <li class="bg-azul-claro rounded-lg px-4 py-3">
-                        <i class="fas fa-home text-dorado mr-2"></i> Techado de una parte importante del templo
-                        <span class="inline-block ml-1 px-2 py-0.5 bg-dorado text-white text-xs font-bold rounded-full">Prioridad</span>
-                    </li>
-                    <li class="bg-azul-claro rounded-lg px-4 py-3">
-                        <i class="fas fa-bolt text-dorado mr-2"></i> Instalaciones eléctricas
-                    </li>
-                    <li class="bg-azul-claro rounded-lg px-4 py-3">
-                        <i class="fas fa-faucet-drip text-dorado mr-2"></i> Sistema de agua y desagüe
-                    </li>
-                    <li class="bg-azul-claro rounded-lg px-4 py-3">
-                        <i class="fas fa-door-open text-dorado mr-2"></i> Puertas y ventanas
-                    </li>
-                    <li class="bg-azul-claro rounded-lg px-4 py-3 sm:col-span-2">
-                        <i class="fas fa-paint-roller text-dorado mr-2"></i> Pintura y materiales complementarios
-                    </li>
-                </ul>
-                <p class="mt-4 text-xs text-gris-oscuro italic">
-                    Gracias a la fidelidad del Señor, ya contamos con una importante donación inicial del
-                    <strong>Hno. Martin Riquelme</strong>, que permite avanzar significativamente en la obra.
-                </p>
-            </div>
-
-            <!-- Mobiliario + Necesidad especial -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 no-overflow reveal" data-delay="100">
-                <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 border-t-4 border-azul-cielo w-full no-overflow">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="bg-azul-cielo/20 p-3 rounded-xl">
-                            <i class="fas fa-chair text-2xl text-azul-cielo"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-azul-marino">Mobiliario y equipamiento</h3>
-                    </div>
-                    <ul class="space-y-2 text-sm text-gris-oscuro">
-                        <li><i class="fas fa-check text-dorado mr-2"></i> Bancas y sillas para los asistentes</li>
-                        <li><i class="fas fa-check text-dorado mr-2"></i> Púlpito</li>
-                        <li><i class="fas fa-check text-dorado mr-2"></i> Equipamiento básico para las reuniones</li>
-                    </ul>
-                </div>
-
-                <div class="bg-gradient-azul rounded-2xl shadow-xl p-6 sm:p-8 text-white w-full no-overflow">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="bg-white/10 p-3 rounded-xl">
-                            <i class="fas fa-tv text-2xl text-dorado"></i>
-                        </div>
-                        <h3 class="text-lg font-bold">Necesidad especial</h3>
-                    </div>
-                    <p class="text-sm leading-relaxed text-white/90">
-                        Nuestro proyector dejó de funcionar definitivamente. Solicitamos apoyo para adquirir un
-                        <strong class="text-dorado">proyector nuevo</strong> o un
-                        <strong class="text-dorado">televisor de 65 pulgadas con entrada HDMI</strong>,
-                        fundamental para proyectar las Escrituras en conferencias, capacitaciones, estudios bíblicos
-                        e informes ministeriales.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Cómo puedes apoyar -->
-            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-10 border-t-4 border-azul-marino w-full no-overflow mb-6 reveal" data-delay="0">
-                <h3 class="text-xl font-bold text-azul-marino mb-4">
-                    <i class="fas fa-hands-helping mr-2 text-dorado"></i> ¿Cómo puedes apoyar?
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div class="bg-azul-claro rounded-xl p-5 text-center">
-                        <div class="text-3xl mb-2">🧱</div>
-                        <p class="font-bold text-sm text-azul-marino">Donación de materiales</p>
-                        <p class="text-xs text-gris-oscuro mt-1">De construcción o mobiliario</p>
-                    </div>
-                    <div class="bg-azul-claro rounded-xl p-5 text-center">
-                        <div class="text-3xl mb-2">❤️</div>
-                        <p class="font-bold text-sm text-azul-marino">Ofrendas y aportes</p>
-                        <p class="text-xs text-gris-oscuro mt-1">Económicos</p>
-                    </div>
-                    <div class="bg-azul-claro rounded-xl p-5 text-center">
-                        <div class="text-3xl mb-2">🎓</div>
-                        <p class="font-bold text-sm text-azul-marino">Otros aportes</p>
-                        <p class="text-xs text-gris-oscuro mt-1">Conocimientos, profesión o experiencia ministerial</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contacto + Datos bancarios -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 no-overflow reveal" data-delay="100">
-                <!-- Contacto -->
-                <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-full no-overflow">
-                    <h3 class="text-lg font-bold text-azul-marino mb-4">
-                        <i class="fas fa-phone-alt mr-2 text-dorado"></i> Contacto para coordinación
-                    </h3>
-                    <p class="font-semibold text-gris-oscuro">Ps. Luis David Alberto Inga</p>
-                    <div class="mt-3 space-y-2 text-sm text-gris-oscuro">
-                        <p>
-                            <a href="tel:+51947388484" class="hover:text-azul-cielo">
-                                <i class="fas fa-mobile-alt text-dorado mr-2"></i> +51 947 388 484
-                            </a>
-                        </p>
-                        <p>
-                            <a href="mailto:luisdavidalbertoinga@gmail.com" class="hover:text-azul-cielo break-words">
-                                <i class="fas fa-envelope text-dorado mr-2"></i> luisdavidalbertoinga@gmail.com
-                            </a>
-                        </p>
-                    </div>
-                    <a href="https://wa.me/51947388484?text=Hola%20pastor%2C%20quiero%20apoyar%20la%20construcci%C3%B3n%20del%20nuevo%20templo.%20Aqu%C3%AD%20van%20mis%20datos%3A%20%5Bcoloca%20aqu%C3%AD%20tu%20nombre%20o%20tus%20datos%5D"
-                        target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-green-500 text-white text-sm font-bold hover:bg-green-600 transition-colors">
-                        <i class="fab fa-whatsapp"></i> Apoyar por WhatsApp
-                    </a>
-                </div>
-
-                <!-- Datos bancarios -->
-                <div class="bg-gradient-azul rounded-2xl shadow-xl p-6 sm:p-8 text-white w-full no-overflow">
-                    <h3 class="text-lg font-bold mb-4">
-                        <i class="fas fa-university mr-2 text-dorado"></i> Datos bancarios oficiales
-                    </h3>
-                    <dl class="text-sm space-y-2 text-white/90">
-                        <div class="flex justify-between gap-3">
-                            <dt class="text-white/70">Titular</dt>
-                            <dd class="text-right">Asociación IEB Horeb de Huarmey</dd>
-                        </div>
-                        <div class="flex justify-between gap-3">
-                            <dt class="text-white/70">Banco</dt>
-                            <dd>Banco de la Nación</dd>
-                        </div>
-                        <div class="flex justify-between gap-3">
-                            <dt class="text-white/70">Tipo de cuenta</dt>
-                            <dd>Ahorros · Soles (S/)</dd>
-                        </div>
-                        <div class="flex justify-between gap-3 border-t border-white/15 pt-2">
-                            <dt class="text-white/70">N.° de cuenta</dt>
-                            <dd class="font-bold text-dorado">04-254-098561</dd>
-                        </div>
-                        <div class="flex justify-between gap-3">
-                            <dt class="text-white/70">CCI</dt>
-                            <dd class="text-right font-mono text-xs break-all">018-784-004254098561-93</dd>
-                        </div>
-                    </dl>
-                    <div class="mt-4 bg-white/10 rounded-xl p-4 text-xs text-white/80">
-                        <p class="font-semibold text-dorado mb-1"><i class="fas fa-globe-americas mr-1"></i> Transferencias internacionales</p>
-                        <p><span class="text-white/70">Código SWIFT:</span> <strong>BANCPEPL</strong></p>
-                        <p class="mt-1 text-white/70">Av. Javier Prado Este 2499, San Borja - Lima, Perú · Banco de la Nación</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Versículo -->
-            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 text-center w-full no-overflow border-l-4 border-dorado reveal" data-delay="0">
-                <p class="italic text-gris-oscuro text-base sm:text-lg leading-relaxed">
-                    <i class="fas fa-quote-left text-dorado mr-1"></i>
-                    “Cada uno dé como propuso en su corazón; no con tristeza, ni por necesidad, porque Dios ama al dador
-                    alegre.”
-                    <i class="fas fa-quote-right text-dorado ml-1"></i>
-                </p>
-                <p class="mt-2 font-bold text-dorado">2 Corintios 9:7</p>
-            </div>
-
-        </div>
-    </section>
 
     <!-- ============================================================ -->
     <!-- ========== FOOTER ========== -->
@@ -678,6 +766,57 @@
             overlay.classList.remove('visible');
             document.body.style.overflow = '';
             limpiarConfeti();
+            iniciarSonido();
+        }
+
+        // ==== Música de fondo ====
+        const SONIDO_ACTIVO = 'horebSonido';
+
+        function aplicarIconoSonido(activo) {
+            const boton = document.getElementById('sonidoBtn');
+            const icono = document.getElementById('sonidoIcono');
+            icono.className = activo ? 'fas fa-volume-up' : 'fas fa-volume-off';
+            boton.classList.toggle('sonido-off', !activo);
+            boton.setAttribute('aria-pressed', activo ? 'true' : 'false');
+        }
+
+        function iniciarSonido() {
+            let guardada = null;
+            try {
+                guardada = localStorage.getItem(SONIDO_ACTIVO);
+            } catch (e) { }
+            if (guardada === 'off') {
+                aplicarIconoSonido(false);
+                return;
+            }
+            const audio = document.getElementById('himnoAudio');
+            audio.volume = 0.35;
+            audio.play().then(function () {
+                try {
+                    localStorage.setItem(SONIDO_ACTIVO, 'on');
+                } catch (e) { }
+                aplicarIconoSonido(true);
+            }).catch(function () {
+                aplicarIconoSonido(false);
+            });
+        }
+
+        function alternarSonido() {
+            const audio = document.getElementById('himnoAudio');
+            if (audio.paused) {
+                audio.play().then(function () {
+                    try {
+                        localStorage.setItem(SONIDO_ACTIVO, 'on');
+                    } catch (e) { }
+                    aplicarIconoSonido(true);
+                }).catch(function () { });
+            } else {
+                audio.pause();
+                try {
+                    localStorage.setItem(SONIDO_ACTIVO, 'off');
+                } catch (e) { }
+                aplicarIconoSonido(false);
+            }
         }
 
         // ==== Despliegue de apoyo dentro de la invitación ====
@@ -744,6 +883,87 @@
             setInterval(actualizar, 1000);
         }
 
+        // ==== Carrusel de avances de la construcción ====
+        let avanceIndice = 0;
+        let avanceTimer = null;
+
+        function moverAvance(paso) {
+            const pista = document.getElementById('avancesPista');
+            const slides = pista.children.length;
+            if (!slides) return;
+            avanceIndice = (avanceIndice + paso + slides) % slides;
+            actualizarAvances();
+        }
+
+        function irAvance(indice) {
+            avanceIndice = indice;
+            actualizarAvances();
+        }
+
+        function actualizarAvances() {
+            const pista = document.getElementById('avancesPista');
+            const puntos = document.querySelectorAll('#avancesPuntos .avances-punto');
+            pista.style.transform = 'translateX(-' + (avanceIndice * 100) + '%)';
+            puntos.forEach(function (punto, i) {
+                punto.classList.toggle('activo', i === avanceIndice);
+            });
+        }
+
+        function iniciarCarrusel() {
+            const carrusel = document.getElementById('avancesCarrusel');
+            const pista = document.getElementById('avancesPista');
+            const puntos = document.getElementById('avancesPuntos');
+            if (!carrusel || !pista) return;
+
+            const slides = Array.from(pista.children);
+            slides.forEach(function (_, i) {
+                const punto = document.createElement('button');
+                punto.type = 'button';
+                punto.className = 'avances-punto' + (i === 0 ? ' activo' : '');
+                punto.setAttribute('aria-label', 'Ir a la foto ' + (i + 1));
+                punto.addEventListener('click', function () {
+                    irAvance(i);
+                    reiniciarCarrusel();
+                });
+                puntos.appendChild(punto);
+            });
+
+            function avanzar() {
+                moverAvance(1);
+            }
+
+            function reiniciarCarrusel() {
+                clearInterval(avanceTimer);
+                avanceTimer = setInterval(avanzar, 5000);
+            }
+
+            carrusel.addEventListener('mouseenter', function () {
+                clearInterval(avanceTimer);
+            });
+            carrusel.addEventListener('mouseleave', reiniciarCarrusel);
+            carrusel.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft') moverAvance(-1);
+                if (e.key === 'ArrowRight') moverAvance(1);
+            });
+
+            let xInicial = null;
+            carrusel.addEventListener('touchstart', function (e) {
+                xInicial = e.touches[0].clientX;
+            }, { passive: true });
+            carrusel.addEventListener('touchend', function (e) {
+                if (xInicial === null) return;
+                const delta = e.changedTouches[0].clientX - xInicial;
+                if (Math.abs(delta) > 45) {
+                    moverAvance(delta < 0 ? 1 : -1);
+                    reiniciarCarrusel();
+                }
+                xInicial = null;
+            });
+
+            actualizarAvances();
+            avanceTimer = setInterval(avanzar, 5000);
+        }
+
         // ==== Aparición de secciones al hacer scroll ====
         function iniciarReveal() {
             const elementos = document.querySelectorAll('.reveal');
@@ -767,6 +987,8 @@
             setTimeout(mostrarInvitacion, 600);
             iniciarContador();
             iniciarReveal();
+            iniciarCarrusel();
+            aplicarIconoSonido(false);
         });
 
         document.getElementById('invitacion').addEventListener('click', function (e) {
